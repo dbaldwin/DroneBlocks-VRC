@@ -1,6 +1,6 @@
 
 
-class AprilTags {
+export default class AprilTags {
   constructor(blockly) {
 
     blockly.defineBlocksWithJsonArray(
@@ -67,5 +67,3 @@ class AprilTags {
     };
   }
 }
-
-module.exports = AprilTags;
