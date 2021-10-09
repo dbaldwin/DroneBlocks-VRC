@@ -13,17 +13,22 @@
     #blocklyDiv {
       height: 100%;
     }
-
-    #blocklyButton {
-      float: right;
-    }
   </style>
   <script type='text/javascript' src='./index.js'></script>
 </head>
 
 <body>
 
-  <button id="blocklyButton"></button>
+  <div>
+  <button id="blocklyButton">
+    Code
+  </button>
+
+  <button id="mqttButton">
+    MQTT
+  </button>
+  </div>
+
   <div id='blocklyDiv'></div>
 
   <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
