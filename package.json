@@ -1,0 +1,22 @@
+{
+  "name": "droneblocks-vrc",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "DroneBlocks for Bell VRC",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blockly": "^6.20210701.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^9.0.1",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
+  }
+}
