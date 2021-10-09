@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>test mqtt.js via websocket</title>
+</head>
+<body>
+<script src="https://unpkg.com/mqtt@4.2.8/dist/mqtt.min.js"></script>
+<script>
+
+// var options = {
+//     clientId: 'web-client',
+//     connectTimeout: 5000,
+//     hostname: '192.168.86.23',
+//     port: 9001,
+//     path: '/mqtt'
+// };
+
+  var client = mqtt.connect("ws://192.168.86.23:9001");
+  
+  client.subscribe("vrc/apriltags/raw")
+
+  client.on("message", function (topic, payload) {
+    
+    console.log([topic, payload].join(": "))
+
+  })
+
+  //client.publish("mqtt/demo", "hello world!")
+</script>
+</body>
+</html>
