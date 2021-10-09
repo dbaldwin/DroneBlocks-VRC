@@ -26,7 +26,13 @@ module.exports = {
           from: path.resolve(__dirname, './node_modules/blockly/media'),
           to: path.resolve(__dirname, 'dist/media')
       }]
+    }),
+
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+      process: 'process/browser',
     })
+    
   ],
   devServer: {
       port: 3000
