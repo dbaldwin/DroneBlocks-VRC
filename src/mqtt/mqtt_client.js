@@ -14,8 +14,8 @@ export default class MQTTClient {
 
         // Handle messages
         this.client.on("message", function (topic, payload) {
-            console.log([topic, payload].join(": "));
-            global.activeTag = 9;
+            //console.log([topic, payload].join(": "));
+            //window.activeTag = 9;
         })
 
         // Stop trying to connect if there's an error
@@ -30,11 +30,7 @@ export default class MQTTClient {
         this.client.end();
     }
 
-    setLEDColor() {
-        this.client.publish("vrc/pcc/set_base_color", "{'wrgb', [0, 255, 0 0]}");
-    }
-
-    setServo(id, state) {
-
+    publish(topic, value) {
+        this.client.publish(topic, value);
     }
 }

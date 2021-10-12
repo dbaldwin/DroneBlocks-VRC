@@ -1,12 +1,13 @@
 import * as Blockly from 'blockly';
 import AprilTags from './custom_blocks/april_tags';
+import LEDRing from './custom_blocks/led_ring';
 import MQTTClient from './mqtt/mqtt_client';
 
-global.activeTag = -1;
-global.tagXDistance;
-global.tagYDistance;
-global.tagZDistance;
-global.mqttClient;
+window.activeTag = -1;
+window.tagXDistance;
+window.tagYDistance;
+window.tagZDistance;
+window.mqttClient;
 
 // Wait for DOM to finish and then inject Blockly
 document.addEventListener("DOMContentLoaded", function () {
@@ -25,21 +26,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Button to connect to MQTT broker
   document.getElementById('mqttConnectButton').addEventListener('click', function() {
-    global.mqttClient = new MQTTClient();
+    window.mqttClient = new MQTTClient();
   });
 
   // Button to disconnect from MQTT broker
   document.getElementById('mqttDisconnectButton').addEventListener('click', function() {
-    global.mqttClient.disconnect();
+    window.mqttClient.disconnect();
   });
 
   // Execute the block code on the canvas
   document.getElementById('executeCodeButton').addEventListener('click', function() {
-    console.log("This is where we'd run the loop");
+    const code = Blockly['JavaScript'].workspaceToCode(workspace);
+    eval(code);
   });
 
-  // Instantiate the AprilTag blocks
+  // Instantiate April Tag blocks
   let aprilTags = new AprilTags(Blockly);
+
+  // Instantiate LED Ring blocks
+  let ledRing = new LEDRing(Blockly);
 
   // Temporarily populate the workspace for testing purposes
   var workspaceBlocks = document.getElementById("workspaceBlocks"); 
