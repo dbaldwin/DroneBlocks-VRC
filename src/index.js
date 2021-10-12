@@ -2,6 +2,12 @@ import * as Blockly from 'blockly';
 import AprilTags from './custom_blocks/april_tags';
 import MQTTClient from './mqtt/mqtt_client';
 
+global.activeTag = -1;
+global.tagXDistance;
+global.tagYDistance;
+global.tagZDistance;
+global.mqttClient;
+
 // Wait for DOM to finish and then inject Blockly
 document.addEventListener("DOMContentLoaded", function () {
     
@@ -18,8 +24,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Button to connect to MQTT broker
-  document.getElementById('mqttButton').addEventListener('click', function() {
-    new MQTTClient();
+  document.getElementById('mqttConnectButton').addEventListener('click', function() {
+    global.mqttClient = new MQTTClient();
+  });
+
+  // Button to disconnect from MQTT broker
+  document.getElementById('mqttDisconnectButton').addEventListener('click', function() {
+    global.mqttClient.disconnect();
+  });
+
+  // Execute the block code on the canvas
+  document.getElementById('executeCodeButton').addEventListener('click', function() {
+    console.log("This is where we'd run the loop");
   });
 
   // Instantiate the AprilTag blocks
