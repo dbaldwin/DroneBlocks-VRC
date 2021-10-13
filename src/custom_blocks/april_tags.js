@@ -1,7 +1,9 @@
-export default class AprilTags {
-  constructor(blockly) {
+import * as Blockly from 'blockly';
 
-    blockly.defineBlocksWithJsonArray(
+export default class AprilTags {
+  constructor() {
+
+    Blockly.defineBlocksWithJsonArray(
       [{
         "type": "april_tag_x_distance",
         "message0": "april tag: x distance",
@@ -36,32 +38,32 @@ export default class AprilTags {
       }]
     );
 
-    blockly.JavaScript['april_tag_x_distance'] = function(block) {
+    Blockly.JavaScript['april_tag_x_distance'] = function(block) {
       // TODO: Assemble JavaScript into code variable.
       var code = '...';
       // TODO: Change ORDER_NONE to the correct strength.
-      return [code, blockly.JavaScript.ORDER_NONE];
+      return [code, Blockly.JavaScript.ORDER_NONE];
     };
 
-    blockly.JavaScript['april_tag_y_distance'] = function(block) {
+    Blockly.JavaScript['april_tag_y_distance'] = function(block) {
       // TODO: Assemble JavaScript into code variable.
       var code = '...';
       // TODO: Change ORDER_NONE to the correct strength.
-      return [code, blockly.JavaScript.ORDER_NONE];
+      return [code, Blockly.JavaScript.ORDER_NONE];
     };
 
-    blockly.JavaScript['april_tag_id'] = function(block) {
+    Blockly.JavaScript['april_tag_id'] = function(block) {
       // TODO: Assemble JavaScript into code variable.
       var code = '...';
       // TODO: Change ORDER_NONE to the correct strength.
-      return [code, blockly.JavaScript.ORDER_NONE];
+      return [code, Blockly.JavaScript.ORDER_NONE];
     };
 
-    blockly.JavaScript['april_tag_z_distance'] = function(block) {
+    Blockly.JavaScript['april_tag_z_distance'] = function(block) {
       // TODO: Assemble JavaScript into code variable.
       var code = '...';
       // TODO: Change ORDER_NONE to the correct strength.
-      return [code, blockly.JavaScript.ORDER_NONE];
+      return [code, Blockly.JavaScript.ORDER_NONE];
     };
   }
 }

@@ -2,12 +2,24 @@ import * as Blockly from 'blockly';
 import AprilTags from './custom_blocks/april_tags';
 import LEDRing from './custom_blocks/led_ring';
 import MQTTClient from './mqtt/mqtt_client';
+import Utils from './utils';
 
 window.activeTag = -1;
 window.tagXDistance;
 window.tagYDistance;
 window.tagZDistance;
 window.mqttClient;
+window.utils = Utils;
+
+const delayWithPromise = function(milliseconds) {
+  return new Promise(resolve => {
+      setTimeout(() => { resolve('') }, milliseconds);
+  });
+}
+
+const delay = async function(milliseconds) {
+  await delayWithPromise(milliseconds);
+}
 
 // Wait for DOM to finish and then inject Blockly
 document.addEventListener("DOMContentLoaded", function () {
